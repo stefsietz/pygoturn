@@ -28,7 +28,7 @@ class BoundingBox:
         self.y1 = y1
         self.x2 = x2
         self.y2 = y2
-        self.kContextFactor = 2
+        self.kContextFactor = 4
         self.kScaleFactor = 10
 
     def print_bb(self):

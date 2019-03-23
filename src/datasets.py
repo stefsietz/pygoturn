@@ -108,14 +108,8 @@ class ALOVDataset(Dataset):
                                                    edge_spacing_y,
                                                    bbox_gt_recentered)
 
-        # get larger context
-        bbox_curr_shift.kContextFactor = 4
-        (rand_search_region_x2, rand_search_location_x2,
-            edge_spacing_x_x2, edge_spacing_y_x2) = cropPadImage(bbox_curr_shift,
-                                                           curr_img)
 
         curr_sample['image'] = rand_search_region
-        curr_sample['image_x2'] = rand_search_region_x2
         curr_sample['bb'] = bbox_gt_recentered.get_bb_list()
 
         # additional options for visualization
@@ -126,10 +120,7 @@ class ALOVDataset(Dataset):
 
         # build prev sample
         prev_sample = self.get_orig_sample(idx, 0)
-        prev_sample_x2 = self.get_orig_sample(idx, 0)
         prev_sample, opts_prev = crop_sample(prev_sample)
-        prev_sample_x2, opts_prev_x2 = crop_sample(prev_sample_x2, 4)
-        prev_sample['image_x2'] = prev_sample_x2['image']
 
         # scale
         scale = Rescale((self.input_size, self.input_size))
@@ -137,8 +128,6 @@ class ALOVDataset(Dataset):
         scaled_prev_obj = scale(prev_sample, opts_prev)
         training_sample = {'previmg': scaled_prev_obj['image'],
                            'currimg': scaled_curr_obj['image'],
-                           'previmg_x2': scaled_prev_obj['image_x2'],
-                           'currimg_x2': scaled_curr_obj['image_x2'],
                            'currbb': scaled_curr_obj['bb']}
 
         return training_sample, opts_curr

@@ -22,10 +22,7 @@ class Rescale(object):
 
     def __call__(self, sample, opts):
         image,  bb = sample['image'],  sample['bb']
-        image_x2 = None
-        img_x2 = None
-        if('image_x2' in sample):
-            image_x2 = sample['image_x2']
+
         h, w = image.shape[:2]
         if isinstance(self.output_size, int):
             if h > w:
@@ -39,11 +36,9 @@ class Rescale(object):
         # make sure that gray image has 3 channels
         img = cv2.resize(image, (new_h, new_w), interpolation=cv2.INTER_CUBIC)
 
-        if image_x2 is not None:
-            img_x2 = cv2.resize(image_x2, (new_h*2, new_w*2), interpolation=cv2.INTER_CUBIC)
         bbox = BoundingBox(bb[0], bb[1], bb[2], bb[3])
         bbox.scale(opts['search_region'])
-        return {'image': img, 'image_x2': img_x2, 'bb': bbox.get_bb_list()}
+        return {'image': img, 'bb': bbox.get_bb_list()}
 
 
 class NormalizeToTensor(object):
@@ -51,10 +46,6 @@ class NormalizeToTensor(object):
 
     def __call__(self, sample):
         prev_img, curr_img = sample['previmg'], sample['currimg']
-        prev_img_x2, curr_img_x2 = None, None
-        if 'previmg_x2' in  sample:
-            prev_img_x2 = sample['previmg_x2']
-            curr_img_x2 = sample['currimg_x2']
 
         self.transform = transforms.Compose([transforms.ToTensor(),
                                             transforms.Normalize(
@@ -63,21 +54,15 @@ class NormalizeToTensor(object):
                                         ])
         prev_img = self.transform(prev_img)
         curr_img = self.transform(curr_img)
-        if prev_img_x2 is not None and curr_img_x2 is not None:
-            prev_img_x2 = self.transform(prev_img_x2)
-            curr_img_x2 = self.transform(curr_img_x2)
+
         if 'currbb' in sample:
             currbb = np.array(sample['currbb'])
             return {'previmg': prev_img,
                     'currimg': curr_img,
-                    'previmg_x2': prev_img_x2,
-                    'currimg_x2': curr_img_x2,
                     'currbb': torch.from_numpy(currbb).float()}
         else:
             return {'previmg': prev_img,
-                    'currimg': curr_img,
-                    'previmg_x2': prev_img_x2,
-                    'currimg_x2': curr_img_x2
+                    'currimg': curr_img
                     }
 
 
@@ -97,7 +82,6 @@ def shift_crop_training_sample(sample, bb_params):
     output_sample = {}
     opts = {}
     currimg = sample['image']
-    currimg_x2 = sample['image']
     currbb = sample['bb']
     bbox_curr_gt = BoundingBox(currbb[0], currbb[1], currbb[2], currbb[3])
     bbox_curr_shift = BoundingBox(0, 0, 0, 0)
@@ -111,12 +95,6 @@ def shift_crop_training_sample(sample, bb_params):
         edge_spacing_x, edge_spacing_y) = cropPadImage(bbox_curr_shift,
                                                        currimg)
 
-    bbox_curr_shift.kContextFactor = 4
-    (rand_search_region_x2, rand_search_location_x2,
-        edge_spacing_x_x2, edge_spacing_y_x2) = cropPadImage(bbox_curr_shift,
-                                                       currimg_x2)
-    bbox_curr_shift.kContextFactor = 2
-
     bbox_curr_gt = BoundingBox(currbb[0], currbb[1], currbb[2], currbb[3])
     bbox_gt_recentered = BoundingBox(0, 0, 0, 0)
     bbox_gt_recentered = bbox_curr_gt.recenter(rand_search_location,
@@ -124,7 +102,6 @@ def shift_crop_training_sample(sample, bb_params):
                                                edge_spacing_y,
                                                bbox_gt_recentered)
     output_sample['image'] = rand_search_region
-    output_sample['image_x2'] = rand_search_region_x2
     output_sample['bb'] = bbox_gt_recentered.get_bb_list()
 
     # additional options for visualization
@@ -136,7 +113,7 @@ def shift_crop_training_sample(sample, bb_params):
     return output_sample, opts
 
 
-def crop_sample(sample, contextFactor=2):
+def crop_sample(sample):
     """
     Given a sample image with bounding box, this method returns the image crop
     at the bounding box location with twice the width and height for context.
@@ -145,11 +122,9 @@ def crop_sample(sample, contextFactor=2):
     opts = {}
     image, bb = sample['image'], sample['bb']
     orig_bbox = BoundingBox(bb[0], bb[1], bb[2], bb[3])
-    orig_bbox.kContextFactor = contextFactor
     (output_image, pad_image_location,
         edge_spacing_x, edge_spacing_y) = cropPadImage(orig_bbox, image)
     new_bbox = BoundingBox(0, 0, 0, 0)
-    new_bbox.kContextFactor = contextFactor
     new_bbox = new_bbox.recenter(pad_image_location,
                                  edge_spacing_x,
                                  edge_spacing_y,

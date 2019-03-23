@@ -18,7 +18,7 @@ from helper import (Rescale, shift_crop_training_sample,
 # constants
 cuda = torch.cuda.is_available()
 device = torch.device('cuda:0' if cuda else 'cpu')
-input_size = 224
+input_size = 448
 kSaveModel = 20000  # save model after every 20000 steps
 batchSize = 50  # number of samples in a batch
 kGeneratedExamplesPerImage = 10  # generate 10 synthetic samples per image
@@ -135,18 +135,14 @@ def get_training_batch(num_running_batch, running_batch, dataset):
     done = False
     N = kGeneratedExamplesPerImage+1
     train_batch = None
-    x1_batch, x2_batch, x1_batch_x2, x2_batch_x2, y_batch = make_transformed_samples(dataset, args)
-    assert(x1_batch.shape[0] == x2_batch.shape[0] == x1_batch_x2.shape[0] == x2_batch_x2.shape[0] == y_batch.shape[0] == N)
+    x1_batch, x2_batch, y_batch = make_transformed_samples(dataset, args)
+    assert(x1_batch.shape[0] == x2_batch.shape[0] == y_batch.shape[0] == N)
     count_in = min(batchSize - num_running_batch, N)
     remain = N - count_in
     running_batch['previmg'][num_running_batch:
                              num_running_batch+count_in] = x1_batch[:count_in]
     running_batch['currimg'][num_running_batch:
                              num_running_batch+count_in] = x2_batch[:count_in]
-    running_batch['previmg_x2'][num_running_batch:
-                             num_running_batch+count_in] = x1_batch_x2[:count_in]
-    running_batch['currimg_x2'][num_running_batch:
-                             num_running_batch+count_in] = x2_batch_x2[:count_in]
     running_batch['currbb'][num_running_batch:
                             num_running_batch+count_in] = y_batch[:count_in]
     num_running_batch = num_running_batch + count_in
@@ -155,8 +151,6 @@ def get_training_batch(num_running_batch, running_batch, dataset):
         train_batch = running_batch.copy()
         running_batch['previmg'][:remain] = x1_batch[-remain:]
         running_batch['currimg'][:remain] = x2_batch[-remain:]
-        running_batch['previmg_x2'][:remain] = x1_batch_x2[-remain:]
-        running_batch['currimg_x2'][:remain] = x2_batch_x2[-remain:]
         running_batch['currbb'][:remain] = y_batch[-remain:]
         num_running_batch = remain
     return running_batch, train_batch, done, num_running_batch
@@ -179,17 +173,11 @@ def make_transformed_samples(dataset, args):
                             input_size, input_size)
     x2_batch = torch.Tensor(kGeneratedExamplesPerImage + 1, 3,
                             input_size, input_size)
-    x1_batch_x2 = torch.Tensor(kGeneratedExamplesPerImage + 1, 3,
-                            input_size*2, input_size*2)
-    x2_batch_x2 = torch.Tensor(kGeneratedExamplesPerImage + 1, 3,
-                            input_size*2, input_size*2)
     y_batch = torch.Tensor(kGeneratedExamplesPerImage + 1, 4)
 
     # initialize batch with the true sample
     x1_batch[0] = true_tensor['previmg']
     x2_batch[0] = true_tensor['currimg']
-    x1_batch_x2[0] = true_tensor['previmg_x2']
-    x2_batch_x2[0] = true_tensor['currimg_x2']
     y_batch[0] = true_tensor['currbb']
 
     scale = Rescale((input_size, input_size))
@@ -199,23 +187,17 @@ def make_transformed_samples(dataset, args):
         curr_sample, opts_curr = shift_crop_training_sample(sample, bb_params)
         # unscaled previous image crop with box
         prev_sample, opts_prev = crop_sample(sample)
-        prev_sample_x2, opts_prev_x2 = crop_sample(sample, contextFactor=4)
-        prev_sample['image_x2'] = prev_sample_x2['image']
         scaled_curr_obj = scale(curr_sample, opts_curr)
         scaled_prev_obj = scale(prev_sample, opts_prev)
         training_sample = {'previmg': scaled_prev_obj['image'],
                            'currimg': scaled_curr_obj['image'],
-                           'previmg_x2': scaled_prev_obj['image_x2'],
-                           'currimg_x2': scaled_curr_obj['image_x2'],
                            'currbb': scaled_curr_obj['bb']}
         sample = transform(training_sample)
         x1_batch[i+1] = sample['previmg']
         x2_batch[i+1] = sample['currimg']
-        x1_batch_x2[i+1] = sample['previmg_x2']
-        x2_batch_x2[i+1] = sample['currimg_x2']
         y_batch[i+1] = sample['currbb']
 
-    return x1_batch, x2_batch, x1_batch_x2, x2_batch_x2, y_batch
+    return x1_batch, x2_batch, y_batch
 
 
 def train_model(model, datasets, criterion, optimizer):
@@ -229,8 +211,6 @@ def train_model(model, datasets, criterion, optimizer):
     num_running_batch = 0
     running_batch = {'previmg': torch.Tensor(batchSize, 3, input_size, input_size),
                      'currimg': torch.Tensor(batchSize, 3, input_size, input_size),
-                     'previmg_x2': torch.Tensor(batchSize, 3, input_size*2, input_size*2),
-                     'currimg_x2': torch.Tensor(batchSize, 3, input_size*2, input_size*2),
                      'currbb': torch.Tensor(batchSize, 4)}
     scheduler = optim.lr_scheduler.StepLR(optimizer,
                                           step_size=args.lr_decay_step,
@@ -286,15 +266,13 @@ def train_model(model, datasets, criterion, optimizer):
                 # load sample
                 x1 = train_batch['previmg'].to(device)
                 x2 = train_batch['currimg'].to(device)
-                x1_x2 = train_batch['previmg_x2'].to(device)
-                x2_x2 = train_batch['currimg_x2'].to(device)
                 y = train_batch['currbb'].requires_grad_(False).to(device)
 
                 # zero the parameter gradients
                 optimizer.zero_grad()
 
                 # forward
-                output = model(x1, x2, x1_x2, x2_x2)
+                output = model(x1, x2)
                 loss = criterion(output, y)
 
                 # backward + optimize
