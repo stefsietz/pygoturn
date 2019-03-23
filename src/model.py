@@ -244,14 +244,14 @@ class SPPSqueezeGoNet2(nn.Module):
         super(SPPSqueezeGoNet2, self).__init__()
         caffenet = models.squeezenet1_1(pretrained=True)
         squeezenet_feature_layers = list(caffenet.children())[:-1]
-        self.convnet = nn.Sequential(*list(*squeezenet_feature_layers)[:-3])
-        self.avgPool1 = nn.AdaptiveAvgPool2d([7, 7])
-        self.avgPool2 = nn.AdaptiveAvgPool2d([7, 7])
+        self.convnet = nn.Sequential(*list(*squeezenet_feature_layers)[:-4])
+        self.avgPool1 = nn.AdaptiveAvgPool2d([5, 5])
+        self.avgPool2 = nn.AdaptiveAvgPool2d([5, 5])
 
         for param in self.convnet.parameters():
             param.requires_grad = False
         self.classifier = nn.Sequential(
-                nn.Linear(256*7*7*4, 4096),
+                nn.Linear(256*5*5*4, 4096),
                 nn.ReLU(inplace=True),
                 nn.Dropout(),
                 nn.Linear(4096, 4096),
@@ -281,20 +281,20 @@ class SPPSqueezeGoNet2(nn.Module):
 
         x1_x2 = self.convnet(x1_x2)
 
-        x1 = x1_x2[:, :, 4:11, 4:11]
-        x1 = x1.contiguous().view(x1.size(0), 256*7*7)
+        x1 = x1_x2[:, :, 5:10, 5:10]
+        x1 = x1.contiguous().view(x1.size(0), 256*5*5)
 
 
         x1_x2 = self.avgPool1(x1_x2)
-        x1_x2 = x1_x2.view(x1_x2.size(0), 256*7*7)
+        x1_x2 = x1_x2.view(x1_x2.size(0), 256*5*5)
 
         x2_x2 = self.convnet(x2_x2)
 
-        x2 = x2_x2[:, :, 4:11, 4:11]
-        x2 = x2.contiguous().view(x2.size(0), 256*7*7)
+        x2 = x2_x2[:, :, 5:10, 5:10]
+        x2 = x2.contiguous().view(x2.size(0), 256*5*5)
 
         x2_x2 = self.avgPool2(x2_x2)
-        x2_x2 = x2_x2.view(x2_x2.size(0), 256*7*7)
+        x2_x2 = x2_x2.view(x2_x2.size(0), 256*5*5)
 
 
         x = torch.cat((x1, x2, x1_x2, x2_x2), 1)

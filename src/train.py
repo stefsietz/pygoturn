@@ -17,7 +17,7 @@ from helper import (Rescale, shift_crop_training_sample,
 
 # constants
 cuda = torch.cuda.is_available()
-device = torch.device('cuda:0' if cuda else 'cpu')
+device = torch.device('cuda:1' if cuda else 'cpu')
 input_size = 224
 kSaveModel = 20000  # save model after every 20000 steps
 batchSize = 50  # number of samples in a batch
@@ -99,11 +99,11 @@ def main():
     #                                   bb_params,
     #                                   transform,
     #                                   input_size)
-    # list of datasets to train on
+    #list of datasets to train on
     datasets = [alov, ]
 
     # load model
-    net = model.SPPSqueezeGoNet2().to(device)
+    net = model.SPPGoNet().to(device)
     # summary(net, [(3, 224, 224), (3, 224, 224)])
     loss_fn = torch.nn.L1Loss(size_average=False).to(device)
 

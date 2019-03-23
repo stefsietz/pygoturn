@@ -2,10 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="869e37cc-b816-45ef-beeb-ce6f3e4797c9" name="Default Changelist" comment="">
+<<<<<<< Updated upstream
       <change beforePath="$PROJECT_DIR$/src/model.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/model.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/train.py" beforeDir="false" afterPath="$PROJECT_DIR$/src/train.py" afterDir="false" />
+=======
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/runs/Mar21_16-34-06_stefan-P7xxTM1/events.out.tfevents.1553182446.stefan-P7xxTM1" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/pygoturn_fork.iml" afterPath="$PROJECT_DIR$/.idea/pygoturn_fork.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+>>>>>>> Stashed changes
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,6 +21,7 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="600">
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/train.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -21,37 +30,97 @@
               <folding>
                 <element signature="e#20#29#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="train.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/train.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="185">
+              <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="functional.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/functional.py">
           <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
             <state relative-caret-position="339">
               <caret line="1351" selection-start-line="1351" selection-end-line="1351" />
+=======
+            <state relative-caret-position="12438">
+              <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file leaf-file-name="pooling.py" pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/modules/pooling.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="354">
-              <caret line="1001" selection-start-line="1001" selection-end-line="1001" />
+            <state relative-caret-position="17928">
+              <caret line="1001" column="0" lean-forward="false" selection-start-line="1001" selection-start-column="0" selection-end-line="1001" selection-end-column="0" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/functional.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1305">
               <caret line="49" selection-start-line="49" selection-end-line="49" />
+=======
+      <file leaf-file-name="datasets.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/datasets.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2376">
+              <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#47#0" expanded="true" />
+                <marker date="1553183050732" expanded="true" signature="5845:5887" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="5845:8408" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="5929:6255" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="5938:6070" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="6283:6833" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="6292:6415" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="6873:7517" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="6882:7111" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="7550:8408" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="7559:7710" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="8655:8895" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="8928:9061" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="9085:9109" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="9147:9752" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="9231:9334" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="9398:9726" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="9784:10842" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="9793:10121" ph="&quot;&quot;&quot;Returns sample without transformation for visualization....&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="10640:10799" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="10879:11186" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="10888:11020" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="11222:11770" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="11231:11378" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="11418:11751" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="11819:13069" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="12024:12867" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="12228:12322" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="12346:12437" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="12519:12801" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="12674:12801" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="13105:13629" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="13114:13231" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+                <marker date="1553183050732" expanded="true" signature="13671:13822" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/transforms.py">
           <provider selected="true" editor-type-id="text-editor">
@@ -69,42 +138,97 @@
               <folding>
                 <element signature="e#0#12#0" expanded="true" />
               </folding>
+=======
+      <file leaf-file-name="boundingbox.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/boundingbox.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="414">
+              <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/models/squeezenet.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1119">
               <caret line="95" selection-start-line="95" selection-end-line="95" />
+=======
+      <file leaf-file-name="helper.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/helper.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2142">
+              <caret line="157" column="4" lean-forward="false" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="4" />
+              <folding>
+                <marker date="1553183050732" expanded="true" signature="202:537" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="521:537" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="5909:6447" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="6486:8295" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="7481:7653" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="7515:7632" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="7663:7787" ph="..." />
+                <marker date="1553183050732" expanded="true" signature="7697:7766" ph="..." />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/modules/utils.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="580">
               <caret line="21" selection-start-line="21" selection-end-line="21" />
+=======
+      <file leaf-file-name="functional.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/functional.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="810">
+              <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/models/alexnet.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="571">
               <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
+=======
+      <file leaf-file-name="transforms.py" pinned="false" current-in-tab="false">
+        <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/transforms.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="972">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+              <folding />
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
       </file>
+<<<<<<< Updated upstream
       <file pinned="false" current-in-tab="false">
         <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/modules/module.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="397">
               <caret line="904" selection-start-line="904" selection-end-line="904" />
+=======
+      <file leaf-file-name="model.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/model.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1080">
+              <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+              <folding>
+                <element signature="e#0#12#0" expanded="true" />
+              </folding>
+>>>>>>> Stashed changes
             </state>
           </provider>
         </entry>
@@ -136,15 +260,24 @@
   <component name="ProjectFrameBounds" extendedState="6">
     <option name="x" value="134" />
     <option name="y" value="39" />
-    <option name="width" value="3696" />
-    <option name="height" value="2121" />
+    <option name="width" value="1533" />
+    <option name="height" value="1175" />
   </component>
   <component name="ProjectView">
-    <navigator proportions="" version="1">
+    <navigator currentView="ProjectPane" proportions="" version="1">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+      <manualOrder />
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -167,11 +300,13 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scratches" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PythonContentEntriesConfigurable" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -187,7 +322,6 @@
   </component>
   <component name="RunManager" selected="Python.train">
     <configuration name="model" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pygoturn_fork" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -198,17 +332,13 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="pygoturn_fork" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/model.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
     <configuration name="train" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="pygoturn_fork" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
@@ -219,21 +349,24 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="pygoturn_fork" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/src/train.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
     </configuration>
+    <list size="2">
+      <item index="0" class="java.lang.String" itemvalue="Python.model" />
+      <item index="1" class="java.lang.String" itemvalue="Python.train" />
+    </list>
     <recent_temporary>
-      <list>
-        <item itemvalue="Python.train" />
-        <item itemvalue="Python.model" />
+      <list size="1">
+        <item index="0" class="java.lang.String" itemvalue="Python.train" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false">
+    <option name="remove_strategy" value="false" />
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -249,28 +382,29 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="134" y="35" width="3706" height="2125" extended-state="6" />
-    <editor active="true" />
+    <frame x="134" y="39" width="1533" height="1175" extended-state="6" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.24986346" />
-      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32974717" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39967725" />
-      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Version Control" order="7" />
-      <window_info anchor="bottom" id="Terminal" order="8" />
-      <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
-      <window_info anchor="bottom" id="Python Console" order="10" />
-      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24983692" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.39925024" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Data View" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
+<<<<<<< Updated upstream
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -281,69 +415,256 @@
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
+=======
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
+    <watches-manager />
+>>>>>>> Stashed changes
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/matplotlib/pyplot.py">
+    <entry file="file://$PROJECT_DIR$/src/train.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="354">
-          <caret line="2687" column="4" selection-start-line="2687" selection-start-column="4" selection-end-line="2687" selection-end-column="4" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="12438">
+          <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/modules/pooling.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17928">
+          <caret line="1001" column="0" lean-forward="false" selection-start-line="1001" selection-start-column="0" selection-end-line="1001" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/datasets.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4118">
-          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        <state relative-caret-position="2376">
+          <caret line="142" column="0" lean-forward="false" selection-start-line="142" selection-start-column="0" selection-end-line="142" selection-end-column="0" />
           <folding>
             <element signature="e#0#47#0" expanded="true" />
+            <marker date="1553183050732" expanded="true" signature="5845:5887" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5845:8408" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5929:6255" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5938:6070" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="6283:6833" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="6292:6415" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="6873:7517" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="6882:7111" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="7550:8408" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7559:7710" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="8655:8895" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="8928:9061" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9085:9109" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9147:9752" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9231:9334" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9398:9726" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9784:10842" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9793:10121" ph="&quot;&quot;&quot;Returns sample without transformation for visualization....&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="10640:10799" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="10879:11186" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="10888:11020" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="11222:11770" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="11231:11378" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="11418:11751" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="11819:13069" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12024:12867" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12228:12322" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12346:12437" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12519:12801" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12674:12801" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="13105:13629" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="13114:13231" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="13671:13822" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/boundingbox.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="667">
-          <caret line="24" column="8" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+        <state relative-caret-position="414">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/helper.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3451">
-          <caret line="126" column="4" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
+        <state relative-caret-position="2142">
+          <caret line="126" column="4" lean-forward="false" selection-start-line="126" selection-start-column="4" selection-end-line="126" selection-end-column="4" />
+          <folding>
+            <marker date="1553183050732" expanded="true" signature="202:537" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="521:537" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5909:6447" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="6486:8295" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7481:7653" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7515:7632" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7663:7787" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7697:7766" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/functional.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1305">
-          <caret line="49" selection-start-line="49" selection-end-line="49" />
+        <state relative-caret-position="810">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/transforms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1566">
-          <caret line="59" selection-start-line="59" selection-end-line="59" />
+        <state relative-caret-position="972">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/model.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="62" column="0" lean-forward="true" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/matplotlib/pyplot.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="354">
+          <caret line="2687" column="4" lean-forward="false" selection-start-line="2687" selection-start-column="4" selection-end-line="2687" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/datasets.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2376">
+          <caret line="157" column="0" lean-forward="false" selection-start-line="157" selection-start-column="0" selection-end-line="157" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#47#0" expanded="true" />
+            <marker date="1553183050732" expanded="true" signature="5845:5887" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5845:8408" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5929:6255" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5938:6070" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="6283:6833" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="6292:6415" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="6873:7517" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="6882:7111" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="7550:8408" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7559:7710" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="8655:8895" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="8928:9061" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9085:9109" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9147:9752" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9231:9334" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9398:9726" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9784:10842" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="9793:10121" ph="&quot;&quot;&quot;Returns sample without transformation for visualization....&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="10640:10799" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="10879:11186" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="10888:11020" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="11222:11770" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="11231:11378" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="11418:11751" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="11819:13069" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12024:12867" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12228:12322" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12346:12437" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12519:12801" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="12674:12801" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="13105:13629" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="13114:13231" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+            <marker date="1553183050732" expanded="true" signature="13671:13822" ph="&quot;&quot;&quot;...&quot;&quot;&quot;" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/boundingbox.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="414">
+          <caret line="24" column="8" lean-forward="false" selection-start-line="24" selection-start-column="8" selection-end-line="24" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/helper.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2142">
+          <caret line="157" column="4" lean-forward="false" selection-start-line="157" selection-start-column="4" selection-end-line="157" selection-end-column="4" />
+          <folding>
+            <marker date="1553183050732" expanded="true" signature="202:537" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="521:537" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="5909:6447" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="6486:8295" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7481:7653" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7515:7632" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7663:7787" ph="..." />
+            <marker date="1553183050732" expanded="true" signature="7697:7766" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/functional.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="810">
+          <caret line="49" column="0" lean-forward="false" selection-start-line="49" selection-start-column="0" selection-end-line="49" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/transforms/transforms.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="972">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/modules/pooling.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="354">
           <caret line="1001" selection-start-line="1001" selection-end-line="1001" />
+=======
+        <state relative-caret-position="12438">
+          <caret line="707" column="0" lean-forward="false" selection-start-line="707" selection-start-column="0" selection-end-line="707" selection-end-column="0" />
+          <folding />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torchvision/models/alexnet.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="571">
           <caret line="50" column="4" selection-start-line="50" selection-start-column="4" selection-end-line="50" selection-end-column="4" />
+=======
+        <state relative-caret-position="17928">
+          <caret line="1001" column="0" lean-forward="false" selection-start-line="1001" selection-start-column="0" selection-end-line="1001" selection-end-column="0" />
+          <folding />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/anaconda3/envs/goturn/lib/python3.6/site-packages/torch/nn/modules/module.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="397">
           <caret line="904" selection-start-line="904" selection-end-line="904" />
         </state>
@@ -360,16 +681,29 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="339">
           <caret line="1351" selection-start-line="1351" selection-end-line="1351" />
+=======
+        <state relative-caret-position="1080">
+          <caret line="62" column="0" lean-forward="false" selection-start-line="62" selection-start-column="0" selection-end-line="62" selection-end-column="0" />
+          <folding>
+            <element signature="e#0#12#0" expanded="true" />
+          </folding>
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/train.py">
       <provider selected="true" editor-type-id="text-editor">
+<<<<<<< Updated upstream
         <state relative-caret-position="297">
           <caret line="105" column="32" selection-start-line="105" selection-start-column="32" selection-end-line="105" selection-end-column="32" />
           <folding>
             <element signature="e#20#29#0" expanded="true" />
           </folding>
+=======
+        <state relative-caret-position="185">
+          <caret line="276" column="0" lean-forward="false" selection-start-line="276" selection-start-column="0" selection-end-line="276" selection-end-column="0" />
+          <folding />
+>>>>>>> Stashed changes
         </state>
       </provider>
     </entry>

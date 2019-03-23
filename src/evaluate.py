@@ -1,6 +1,6 @@
 from __future__ import absolute_import
 
-from got10k.experiments import ExperimentOTB
+from got10k.experiments import ExperimentGOT10k
 
 from goturn import TrackerGOTURN
 
@@ -14,8 +14,7 @@ if __name__ == '__main__':
     # got10k toolkit expects either extracted directories or zip files for
     # all sequences in OTB data directory
     experiments = [
-        ExperimentOTB('../data/OTB', version=2013),
-        ExperimentOTB('../data/OTB', version=2015)
+        ExperimentGOT10k('../data/GOT-10k', subset='val')
     ]
 
     # run tracking experiments and report performance
