@@ -92,15 +92,15 @@ def main():
                                     'alov300++_rectangleAnnotation_full/'),
                        NormalizeToTensor(), input_size)
 
-    # imagenet = ILSVRC2014_DET_Dataset(os.path.join("../../pygoturn/data",
-    #                                                'ILSVRC2014_DET_train/'),
-    #                                   os.path.join("../../pygoturn/data",
-    #                                                'ILSVRC2014_DET_bbox_train/'),
-    #                                   bb_params,
-    #                                   transform,
-    #                                   input_size)
+    imagenet = ILSVRC2014_DET_Dataset(os.path.join("../../pygoturn/data",
+                                                   'ILSVRC2014_DET_train/'),
+                                      os.path.join("../../pygoturn/data",
+                                                   'ILSVRC2014_DET_bbox_train/'),
+                                      bb_params,
+                                      transform,
+                                      input_size)
     # list of datasets to train on
-    datasets = [alov, ]
+    datasets = [alov, imagenet]
 
     # load model
     net = model.SPPGoNet().to(device)
