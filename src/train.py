@@ -11,7 +11,7 @@ import model
 # from torchsummary import summary
 import tensorboardX
 
-from datasets import ALOVDataset, ILSVRC2014_DET_Dataset
+from datasets import ALOVDataset, ILSVRC2014_DET_Dataset, GOT10kDataset
 from helper import (Rescale, shift_crop_training_sample,
                     crop_sample, NormalizeToTensor)
 
@@ -85,22 +85,27 @@ def main():
     bb_params['min_scale'] = args.min_scale
     bb_params['max_scale'] = args.max_scale
 
-    # load datasets
+    #load datasets
     alov = ALOVDataset(os.path.join("../../pygoturn/data",
                                     'imagedata++/'),
                        os.path.join("../../pygoturn/data",
                                     'alov300++_rectangleAnnotation_full/'),
                        NormalizeToTensor(), input_size)
+    #
+    # imagenet = ILSVRC2014_DET_Dataset(os.path.join("../../pygoturn/data",
+    #                                                'ILSVRC2014_DET_train/'),
+    #                                   os.path.join("../../pygoturn/data",
+    #                                                'ILSVRC2014_DET_bbox_train/'),
+    #                                   bb_params,
+    #                                   transform,
+    #                                   input_size)
 
-    imagenet = ILSVRC2014_DET_Dataset(os.path.join("../../pygoturn/data",
-                                                   'ILSVRC2014_DET_train/'),
-                                      os.path.join("../../pygoturn/data",
-                                                   'ILSVRC2014_DET_bbox_train/'),
-                                      bb_params,
-                                      transform,
-                                      input_size)
+    got10k = GOT10kDataset("../../got10k",
+                         "../../got10k",
+                       NormalizeToTensor(), input_size)
+
     # list of datasets to train on
-    datasets = [alov, imagenet]
+    datasets = [ got10k]
 
     # load model
     net = model.SPPGoNet().to(device)

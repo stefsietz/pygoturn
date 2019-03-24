@@ -3,6 +3,8 @@ import os
 import xml.etree.ElementTree as ET
 import warnings
 import matplotlib.pyplot as plt
+import six, glob
+from got10k.datasets import GOT10k
 
 import numpy as np
 import cv2
@@ -352,4 +354,175 @@ class ILSVRC2014_DET_Dataset(Dataset):
                                    (0, 255, 0), 2)
         concat_image = np.hstack((prev_image, curr_image))
         cv2.imshow('imagenet dataset sample: ' + str(idx), concat_image)
+        cv2.waitKey(0)
+
+class GOT10kDataset(Dataset):
+    def __init__(self, root_dir, target_dir, transform=None, input_size=227):
+        super(GOT10kDataset, self).__init__()
+        self.dataset = GOT10k(root_dir, subset='train')
+        self.dataset.return_meta = True
+        self.input_size = input_size
+        self.transform = transform
+        self.x, self.y = self._parse_data()
+        self.len = len(self.y)
+
+    def __len__(self):
+        return self.len
+
+    def __getitem__(self, idx):
+        sample, _ = self.get_sample(idx)
+        if (self.transform):
+            sample = self.transform(sample)
+        return sample
+
+    def _parse_data(self):
+        """
+        Parses GOT10K dataset and builds tuples of (template, search region)
+        tuples from consecutive annotated frames.
+        """
+        x = []
+        y = []
+
+        seq_names = self.dataset.seq_names
+        #covers = {s: self.dataset[s][2]['cover'][1:] for s in seq_names}
+
+        num_anno = 0
+        print('Parsing GOT10K dataset...')
+        for s in seq_names:
+            seq_data  =self.dataset[s]
+            seq_length = len(seq_data[0])
+            for i, im_box_cover in enumerate(zip(seq_data[0], seq_data[1], seq_data[2]['cover'])):
+                if i >= seq_length-2:
+                    break
+                im, box, cover = im_box_cover
+                im2, box2, cover2 = seq_data[0][i+1], seq_data[1][i+1], seq_data[2]['cover'][i+1]
+                if cover < 1 or cover2 < 1:
+                    continue
+
+                x.append([im, im2])
+                box = np.array(box)
+                box2  =np.array(box2)
+                y.append([box, box2])
+                num_anno += 1
+
+        x = np.array(x)
+        y = np.array(y)
+        self.len = len(y)
+        print('GOT10K dataset parsing done.')
+        print('Total number of annotations in GOT10K dataset = %d' % (num_anno))
+        return x, y
+
+    def get_sample(self, idx):
+        """
+        Returns sample without transformation for visualization.
+
+        Sample consists of resized previous and current frame with target
+        which is passed to the network. Bounding box values are normalized
+        between 0 and 1 with respect to the target frame and then scaled by
+        factor of 10.
+        """
+        opts_curr = {}
+        curr_sample = {}
+        curr_img = self.get_orig_sample(idx, 1)['image']
+        currbb = self.get_orig_sample(idx, 1)['bb']
+        prevbb = self.get_orig_sample(idx, 0)['bb']
+        bbox_curr_shift = BoundingBox(prevbb[0],
+                                      prevbb[1],
+                                      prevbb[2],
+                                      prevbb[3])
+        (rand_search_region, rand_search_location,
+            edge_spacing_x, edge_spacing_y) = cropPadImage(bbox_curr_shift,
+                                                           curr_img)
+        bbox_curr_gt = BoundingBox(currbb[0], currbb[1], currbb[2], currbb[3])
+        bbox_gt_recentered = BoundingBox(0, 0, 0, 0)
+        bbox_gt_recentered = bbox_curr_gt.recenter(rand_search_location,
+                                                   edge_spacing_x,
+                                                   edge_spacing_y,
+                                                   bbox_gt_recentered)
+
+
+        curr_sample['image'] = rand_search_region
+        curr_sample['bb'] = bbox_gt_recentered.get_bb_list()
+
+        # additional options for visualization
+        opts_curr['edge_spacing_x'] = edge_spacing_x
+        opts_curr['edge_spacing_y'] = edge_spacing_y
+        opts_curr['search_location'] = rand_search_location
+        opts_curr['search_region'] = rand_search_region
+
+        # build prev sample
+        prev_sample = self.get_orig_sample(idx, 0)
+        prev_sample, opts_prev = crop_sample(prev_sample)
+
+        # scale
+        scale = Rescale((self.input_size, self.input_size))
+        scaled_curr_obj = scale(curr_sample, opts_curr)
+        scaled_prev_obj = scale(prev_sample, opts_prev)
+        training_sample = {'previmg': scaled_prev_obj['image'],
+                           'currimg': scaled_curr_obj['image'],
+                           'currbb': scaled_curr_obj['bb']}
+
+        return training_sample, opts_curr
+
+    def get_orig_sample(self, idx, i=1):
+        """
+        Returns original image with bounding box at a specific index.
+        Range of valid index: [0, self.len-1].
+        """
+        idx=1
+        curr = cv2.imread(self.x[idx][i])
+        curr = bgr2rgb(curr)
+        currbb = self.get_bb(self.y[idx][i])
+        sample = {'image': curr, 'bb': currbb}
+        return sample
+
+    def get_bb(self, ann):
+        """
+        Parses ALOV annotation and returns bounding box in the format:
+        [left, upper, width, height]
+        """
+        left = float(ann[0])
+        top = float(ann[1])
+        right = float(ann[0]+ann[2])
+        bottom = float(ann[1]+ann[3])
+        return [left, top, right, bottom]
+
+    def show(self, idx, is_current=1):
+        """
+        Helper function to display image at a particular index with grounttruth
+        bounding box.
+
+        Arguments:
+            idx: index
+            is_current: 0 for previous frame and 1 for current frame
+        """
+        sample = self.get_orig_sample(idx, is_current)
+        image = sample['image']
+        image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
+        bb = sample['bb']
+        bb = [int(val) for val in bb]
+        image = cv2.rectangle(image, (bb[0], bb[1]), (bb[2], bb[3]),
+                              (0, 255, 0), 2)
+        cv2.imshow('alov dataset sample: ' + str(idx), image)
+        cv2.waitKey(0)
+
+    def show_sample(self, idx):
+        """
+        Helper function to display sample, which is passed to GOTURN.
+        Shows previous frame and current frame with bounding box.
+        """
+        x, _ = self.get_sample(idx)
+        prev_image = x['previmg']
+        curr_image = x['currimg']
+        bb = x['currbb']
+        bbox = BoundingBox(bb[0], bb[1], bb[2], bb[3])
+        bbox.unscale(curr_image)
+        bb = bbox.get_bb_list()
+        bb = [int(val) for val in bb]
+        prev_image = cv2.cvtColor(prev_image, cv2.COLOR_RGB2BGR)
+        curr_image = cv2.cvtColor(curr_image, cv2.COLOR_RGB2BGR)
+        curr_image = cv2.rectangle(curr_image, (bb[0], bb[1]), (bb[2], bb[3]),
+                                   (0, 255, 0), 2)
+        concat_image = np.hstack((prev_image, curr_image))
+        cv2.imshow('alov dataset sample: ' + str(idx), concat_image)
         cv2.waitKey(0)
